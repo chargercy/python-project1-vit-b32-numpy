@@ -1,4 +1,5 @@
-﻿# 用 NumPy 复现 OpenCLIP ViT-B/32 图像编码器
+[README.md](https://github.com/user-attachments/files/35234936/README.md)
+# 用 NumPy 复现 OpenCLIP ViT-B/32 图像编码器
 
 **项目 1 提交** · 陈煜 · 2025681052 · 人工智能
 
@@ -8,7 +9,7 @@
 
 - 实验报告（封面 + 4 页正文）：[`REPORT/report.pdf`](REPORT/report.pdf)
 - 检查输出：[`results/check_all.txt`](results/check_all.txt) · 误差数据：[`results/stage_metrics.csv`](results/stage_metrics.csv)
-- 代码仓库：`https://github.com/<username>/python-project1-vit-b32-numpy`（占位链接，发布方法见文末）
+- 代码仓库：`https://github.com/chargercy/python-project1-vit-b32-numpy`
 
 ## 结果一览
 
@@ -40,8 +41,9 @@ python run.py --output output_tokens.npz
 ```
 
 `run.py` 会打印 `Saved (10, 512) to output_tokens.npz`，并与 `results/output_tokens.npz`
-一致。**课程附件中的两个大文件未随仓库提交**：`weights/image_encoder.npz`（326 MB）与
-`assets/reference_outputs.npz`（7.7 MB）。从作业附件把它们放回原位即可直接复现。
+一致。本仓库只放本人实现、结果和报告：`helpers.py`、`preprocess_image.py`、`runtime.py`、
+`run.py`、`check.py`、`config.json` 这些课程脚手架，以及 `weights/image_encoder.npz`
+（326 MB）与 `assets/reference_outputs.npz`（7.7 MB），都请从作业附件复制到本目录后再运行。
 
 也可以逐阶段检查、观察第一处不一致：
 
@@ -76,7 +78,7 @@ python check.py --stage batch
 
 ```
 image_encoder.py               # 唯一修改的代码文件（六个 TODO）
-helpers.py / preprocess_image.py / runtime.py / run.py / check.py   # 课程提供
+helpers.py 等课程脚手架         # 作业附件提供，未随仓库提交
 experiments/head_merge_demo.py # head 合并顺序的错误/正确对比
 results/                       # check_all.txt、stage_metrics.csv、output_tokens.npz
 REPORT/report.pdf              # 实验报告（封面 + 4 页）
@@ -85,21 +87,21 @@ REPORT/tools/                  # 生成图与 PDF 的脚本
 docs/course-README.md          # 课程原始说明（保留备查）
 ```
 
-## 发布到 GitHub
+## 仓库与更新
 
-1. 在 GitHub 新建空仓库，名字例如 `python-project1-vit-b32-numpy`（不要勾选 README）。
-2. 在本目录执行：
+仓库地址：`https://github.com/chargercy/python-project1-vit-b32-numpy`。若之后在本地修改了代码，
+可以这样推送到已建好的仓库：
 
 ```bash
 git init
 git add .
 git commit -m "Project 1: NumPy OpenCLIP ViT-B/32 image encoder"
 git branch -M main
-git remote add origin https://github.com/<username>/python-project1-vit-b32-numpy.git
+git remote add origin https://github.com/chargercy/python-project1-vit-b32-numpy.git
 git push -u origin main
 ```
 
-3. 把 `<username>` 换成自己的用户名，并同步修改报告封面（`REPORT/report.pdf`）里的链接；
-   重新生成报告：`python REPORT/tools/build_report_pdf.py`。
+若仓库地址发生变化，把本文件与 `REPORT/tools/build_report_pdf.py` 里的 URL 一起替换，
+再运行 `python REPORT/tools/build_report_pdf.py` 重新生成报告。
 
 `.gitignore` 已排除 326 MB 的权重、参考输出与缓存，仓库体积保持在几 MB。
