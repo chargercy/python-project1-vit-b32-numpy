@@ -1,0 +1,8 @@
+﻿stage,shape,max_abs,mean_abs,atol,status
+preprocess,"10x3x224x224",0,0,2e-06,PASS
+patches,"2x49x3072",0,0,2e-04,PASS
+tokens,"2x50x768",4.768e-05,1.296e-06,2e-04,PASS
+block0,"2x50x768",6.586e-06,3.252e-07,2e-04,PASS
+last_tokens,"2x50x768",4.864e-05,2.696e-06,2e-04,PASS
+output,"10x512",6.631e-07,8.289e-08,2e-05,PASS
+batch,"3x512",5.066e-07,7.768e-08,2e-05,PASS
